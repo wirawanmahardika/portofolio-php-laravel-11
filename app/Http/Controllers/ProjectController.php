@@ -24,69 +24,57 @@ class ProjectController extends Controller
         return view('admin.project-tambah');
     }
 
-    public function viewAdminEditProject()
+    public function viewAdminEditProject(Project $project)
     {
-        return view('admin.project-edit');
+        return view('admin.project-edit', ['project' => $project]);
     }
 
-    public function editProject(Request $request)
+    public function editProject(Request $request, Project $project)
     {
-        $validated = $request->validate([
-            'id' => 'required|numeric',
-            'nama' => ['nullable', 'min:1'],
-            'deskripsi' => ['nullable', 'min:1'],
-            'image' => ['nullable', 'file', 'max:5000'],
-            'web' => ['nullable', 'min:1'],
-            'github' => ['nullable', 'min:1']
+        $request->validate([
+            'nama' => ['required'],
+            'image' => ['nullable', 'file', 'max:2048'],
         ]);
 
+        if ($request->filled('nama')) $project->nama = $request->nama;
+        if ($request->filled('deskripsi')) $project->deskripsi = $request->deskripsi;
 
-        $data = [];
-        foreach ($validated as $key => $value) {
-            if (isset($value)) {
-                if ($key === 'image') {
-                    $project = Project::select("image")->find($request->id);
-                    Storage::delete($project->image);
-                    $data['image'] = $request->file('image')->store('project_image');
-                } else {
-                    $data[$key] = $value;
-                }
-            }
+        $project->web = $request->filled('web') ? $request->web : null;
+        $project->github = $request->filled('github') ? $request->github : null;
+
+        if ($request->hasFile('image')) {
+            Storage::delete($project->image);
+            $project->image = $request->file('image')->store('project_image');
         }
 
-        Project::where("id", $request->id)->update($data);
+        $project->save();
         return redirect('/admin/project');
     }
 
     public function tambahProject(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'nama' => ['required'],
-            'deskripsi' => ['nullable'],
-            'image' => ['file', 'max:5000'],
-            'web' => ['nullable', 'min:1'],
-            'github' => ['min:1', 'nullable'],
-            'is_api' => ['required']
+            'is_api' => ['required'],
+            'image' => ['file', 'max:2048'],
         ]);
 
-        $data = [];
-        foreach ($validated as $k => $v) {
-            if ($k === 'image') {
-                $data[$k] = $request->file('image')->store('project_image');
-                continue;
-            }
+        $project = new Project;
+        $project->nama = $request->nama;
+        $project->deskripsi = $request->filled('deskripsi') ? $request->deskripsi : null;
+        $project->web = $request->filled('web') ? $request->web : null;
+        $project->github = $request->filled('github') ? $request->github : null;
+        $project->is_api = $request->is_api === 'true' ? true : false;
+        $project->image = $request->hasFile('image') ? $request->file('image')->store('project_image') : null;
 
-            if ($k === 'is_api') {
-                $isApi = $request->is_api === 'true' ? true : false;
-                $data[$k] = $isApi;
-                continue;
-            }
+        $project->save();
+        return redirect('/admin/project');
+    }
 
-            $data[$k] = $v;
-        }
-
-
-        Project::create($data);
+    public function hapusProject(Project $project)
+    {
+        if (isset($project->image)) Storage::delete($project->image);
+        $project->delete();
         return redirect('/admin/project');
     }
 }

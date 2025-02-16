@@ -37,9 +37,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/skills', [SkillsController::class, 'viewAdminSkill']);
     Route::get('/admin/skills/add', [SkillsController::class, 'viewAdminTambahSkill']);
-    Route::get('/admin/skills/edit', [SkillsController::class, 'viewAdminEditSkill']);
+    Route::get('/admin/skills/edit/{id}', [SkillsController::class, 'viewAdminEditSkill']);
     Route::post('/admin/skills/add', [SkillsController::class, 'adminTambahSkill']);
-    Route::post('/admin/skills/edit', [SkillsController::class, 'adminEditSkill']);
+    Route::post('/admin/skills/edit/{skill}', [SkillsController::class, 'adminEditSkill']);
+    Route::post('/admin/skills/hapus/{skill}', [SkillsController::class, 'adminHapusSkill']);
 
     Route::get('/admin/kategori', [KategoriController::class, 'viewAdminKategori']);
     Route::get('/admin/kategori/edit/{kategori}', [KategoriController::class, 'viewAdminEditKategori']);
@@ -54,7 +55,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/project', [ProjectController::class, 'viewAdminProject']);
     Route::get('/admin/project/add', [ProjectController::class, 'viewAdminTambahProject']);
-    Route::get('/admin/project/edit', [ProjectController::class, 'viewAdminEditProject']);
+    Route::get('/admin/project/edit/{project}', [ProjectController::class, 'viewAdminEditProject']);
     Route::post('/admin/project/add', [ProjectController::class, 'tambahProject']);
-    Route::post('/admin/project/edit', [ProjectController::class, 'editProject']);
+    Route::post('/admin/project/edit/{project}', [ProjectController::class, 'editProject']);
+    Route::post('/admin/project/hapus/{project}', [ProjectController::class, 'hapusProject']);
 });

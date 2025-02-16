@@ -15,7 +15,7 @@ class SkillsController extends Controller
             $s->imageUrl = env('STORAGE_URL_BUCKET') . $s->image;
             return $s;
         });
-        return view('admin.skill-lihat', ["skills" => $skills]);
+        return view('admin.skill-lihat', ['skills' => $skills]);
     }
 
     public function viewAdminTambahSkill()
@@ -23,16 +23,16 @@ class SkillsController extends Controller
         return view('admin.skill-tambah');
     }
 
-    public function viewAdminEditSkill()
+    public function viewAdminEditSkill($id)
     {
-        return view('admin.skill-edit');
+        return view('admin.skill-edit', ['id' => $id]);
     }
 
     public function adminTambahSkill(Request $request)
     {
         $request->validate([
-            "name" => "required",
-            "image" => "required|file"
+            'name' => 'required',
+            'image' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:2048']
         ]);
 
         $skill = new Skill;
@@ -40,31 +40,30 @@ class SkillsController extends Controller
         $skill->image = $request->file('image')->store('skill_image');
         $skill->save();
 
-        return redirect("/admin/skills");
+        return redirect('/admin/skills');
     }
 
-    public function adminEditSkill(Request $request)
+    public function adminEditSkill(Request $request, Skill $skill)
     {
-        $validated = $request->validate([
-            "id" => "required|numeric",
-            "name" => "max:50",
-            "image" => "file"
+        $request->validate([
+            'name' => ['max:50'],
+            'image' => ['file', 'mimes:png,jpg,jpeg', 'max:2048']
         ]);
 
-        $data = [];
-        foreach ($validated as $key => $value) {
-            if (isset($value)) {
-                if ($key === 'image') {
-                    $skill = Skill::select("image")->find($request->id);
-                    Storage::delete($skill->image);
-                    $data['image'] = $request->file('image')->store('skill_image');
-                } else {
-                    $data[$key] = $value;
-                }
-            }
+        if ($request->filled('name')) $skill->name = $request->name;
+        if ($request->hasFile('image')) {
+            Storage::delete($skill->image);
+            $skill->image = $request->file('image')->store('skill_image');
         }
 
-        Skill::where('id', $request->id)->update($data);
-        return redirect("/admin/skills");
+        $skill->save();
+        return redirect('/admin/skills');
+    }
+
+    public function adminHapusSkill(Skill $skill)
+    {
+        Storage::delete($skill->id);
+        $skill->delete();
+        return redirect('/admin/skills');
     }
 }
