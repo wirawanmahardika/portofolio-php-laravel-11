@@ -14,11 +14,12 @@
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
     @vite('resources/css/app.css')
+    <script src="/js/animation/anime.min.js"></script>
 </head>
 
 <body>
     {{ $slot }}
-    <script src="/js/navbar.js"></script>
+    <script src="/js/animation/navbar.js"></script>
 </body>
 
 </html>
