@@ -1,6 +1,6 @@
 <nav id="home"
-    class='sticky top-0 bg-black flex justify-between items-center p-3 text-slate-50 border-b-red-500 border-b md:border-none md:p-6 md:px-10 ld:px-14 z-10'>
-    <h2 class='text-lg font-bold font-cinzel sm:text-2xl md:text-3xl lg:text-cyan-600 xl:text-amber-600'>
+    class='sticky top-0 h-[10vh] md:h-[13vh] bg-black flex justify-between items-center p-3 text-slate-50 border-b-red-500 border-b md:border-none md:p-6 md:px-10 ld:px-14 z-10'>
+    <h2 class='text-lg font-bold font-cinzel sm:text-2xl md:text-3xl text-amber-600'>
         Wira<span class='text-red-600'>wan</span>
     </h2>
     <ul class='gap-x-5 text-red-600 hidden md:flex md:font-semibold md:items-center'>
@@ -24,8 +24,8 @@
             clipRule='evenodd' />
     </svg>
 
-    <div id="mobile-nav" style="transition: height ease-out 0.3s"
-        class="h-0 md:hidden absolute z-10 top-full left-0 right-0 bg-black overflow-hidden">
+    <div id="mobile-nav"
+        class="h-0 md:hidden absolute z-10 top-full left-0 right-0 bg-black overflow-hidden border-b border-b-red-500">
         <div class="flex flex-col gap-y-2 p-2">
             <a class="px-2 py-1 rounded ring-blue-400 hover:ring-2" href="/">Home</a>
             <a class="px-2 py-1 rounded ring-blue-400 hover:ring-2" href="/project">Project</a>
