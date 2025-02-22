@@ -8,7 +8,7 @@
             <span class="sm:col-span-2 xl:col-span-3 text-3xl text-center font-bold">Blogs</span>
 
             @foreach ($blogs as $b)
-                <div class="rounded border border-white p-5 flex flex-col gap-y-3">
+                <div class="blog || rounded border border-white p-5 flex flex-col gap-y-3">
                     <div>
                         <h2 class="text-xl font-bold">{{ $b->judul }}</h2>
                         <span class="font-semibold text-xs text-gray-400">{{ $b->kategori->nama }} |
@@ -21,4 +21,5 @@
             @endforeach
         </div>
     </main>
+    <script src="/js/animation/blog.js"></script>
 </x-layout>

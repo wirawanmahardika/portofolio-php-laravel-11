@@ -41,21 +41,35 @@ function animateProfesi() {
 }
 
 // skill bars animation
-let once = 0
+let onceBar = 0
+let onceTech = 0
 window.addEventListener('scroll', function () {
-    if (this.scrollY >= 300 && once === 0) {
+    if (this.scrollY >= 700 && onceTech === 0) {
+        anime({
+            targets: '.tech',
+            scale: [0.8, 1],
+            opacity: [0, 1],
+            delay: anime.stagger(200),
+            duration: 1000
+        })
+        onceTech++
+    }
+
+    if (this.scrollY >= 300 && onceBar === 0) {
+        onceBar++
         anime({
             targets: '#backend-bar',
             width: [0, '90%'],
-            duration: 2000,
-            easing: 'cubicBezier(.5, .05, .01, .8)'
+            duration: 1300,
+            easing: 'easeInOutCubic'
         })
         anime({
             targets: '#frontend-bar',
             width: [0, '80%'],
-            easing: 'cubicBezier(.5, .05, .01, .8)',
-            duration: 2000
+            easing: 'easeInOutCubic',
+            duration: 1300
         })
-        once++
+
     }
 })
+

@@ -5,7 +5,7 @@
     <div class="bg-bgBlack min-h-screen font-quicksand text-gray-200 overflow-hidden">
         <div class="flex flex-col">
             <div class="h-[90vh] md:h-fit lg:h-[87vh] md:py-10 lg:py-0 w-full bg-black">
-                <div class='flex flex-col lg:flex-row lg:mt-10 lg:px-10'>
+                <div class='flex flex-col justify-center h-full lg:h-fit lg:flex-row lg:mt-10 lg:px-10'>
                     <div
                         class="w-2/3 mx-auto rounded-full bg-red-600 overflow-hidden shadow-sm shadow-slate-500 mt-3 sm:w-2/5 md:w-2/5 lg:order-2 lg:w-[60%]">
                         <img src="/img/dika.png" alt="dika" class="w-5/6 lg:w-3/4 mx-auto" />
@@ -23,7 +23,7 @@
                         </p>
 
                         <a href="/contact" id="jumbotron-contact"
-                            class="rounded-full transition-colors hover:bg-red-900 py-2 px-4 mt-4  w-fit bg-red-500">Contact
+                            class="rounded-full transition-colors hover:bg-red-900 px-3 py-1 font-semibold text-sm md:text-base md:py-2 md:px-4 mt-4 w-fit bg-red-500 ">Contact
                             Me</a>
                     </div>
                 </div>
@@ -54,7 +54,8 @@
                     <span class="col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-5 font-bold text-xl mx-auto">Used
                         Technologies</span>
                     @foreach ($skills as $s)
-                        <div class="text-center sm:text-xl bg-zinc-900 shadow-lg shadow-slate-900 rounded p-5">
+                        <div
+                            class="tech || text-center sm:text-xl bg-zinc-900 shadow-lg shadow-slate-900 rounded p-5 opacity-0">
                             <img src="{{ $s->imageUrl }}" alt="{{ $s['name'] }}" class="mx-auto w-1/2" />
                             <p class="text-sm sm:text-base">{{ $s['name'] }}</p>
                         </div>
