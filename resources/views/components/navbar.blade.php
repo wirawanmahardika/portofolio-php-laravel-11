@@ -1,5 +1,5 @@
 <nav id="home"
-    class='sticky top-0 h-[10vh] md:h-[13vh] bg-black flex justify-between items-center p-3 text-slate-50 border-b-red-500 border-b md:border-none md:p-6 md:px-10 ld:px-14 z-10'>
+    class='sticky container mx-auto top-0 h-[10vh] md:h-[13vh] bg-black flex justify-between items-center p-3 text-slate-50 border-b-red-500 border-b md:border-none md:p-6 md:px-10 ld:px-14 z-10'>
     <h2 class='text-lg font-bold font-cinzel sm:text-2xl md:text-3xl text-amber-600'>
         Wira<span class='text-red-600'>wan</span>
     </h2>

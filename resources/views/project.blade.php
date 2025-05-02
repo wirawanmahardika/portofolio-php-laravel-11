@@ -2,7 +2,7 @@
     <x-slot:title>Projects</x-slot:title>
 
     <x-navbar />
-    <main class="bg-bgBlack min-h-screen py-10 text-white px-5 xl:px-20 w-full">
+    <main class="bg-bgBlack min-h-screen py-10 text-white px-5 xl:px-20 w-full container mx-auto">
         <h2 class="font-semibold text-3xl text-center">Projects</h2>
 
         <div class="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">

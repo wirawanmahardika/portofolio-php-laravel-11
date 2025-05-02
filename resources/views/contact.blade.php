@@ -2,7 +2,7 @@
     <x-slot:title>Contact</x-slot:title>
 
     <x-navbar />
-    <div id="contact" class="bg-bgBlack flex flex-col w-full">
+    <div id="contact" class="bg-bgBlack flex flex-col w-full container mx-auto">
         <form class="flex flex-col items-center p-3 gap-y-3 text-white pt-10">
             <h3 class="text-red-500 text-3xl font-bold sm:text-4xl">
                 Contact Me

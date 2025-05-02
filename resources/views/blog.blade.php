@@ -2,7 +2,7 @@
     <x-slot:title>Blog</x-slot:title>
 
     <x-navbar />
-    <main class="bg-bgBlack min-h-screen py-10">
+    <main class="bg-bgBlack min-h-screen py-10 container mx-auto">
         <div
             class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 px-10 xl:px-20 h-fit gap-8 text-white mx-auto xl:gap-x-20">
             <span class="sm:col-span-2 xl:col-span-3 text-3xl text-center font-bold">Blogs</span>

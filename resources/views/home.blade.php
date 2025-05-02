@@ -2,7 +2,7 @@
     <x-slot:title>Home</x-slot:title>
 
     <x-navbar />
-    <div class="bg-bgBlack min-h-screen font-quicksand text-gray-200 overflow-hidden">
+    <div class="bg-bgBlack min-h-screen font-quicksand text-gray-200 overflow-hidden container mx-auto">
         <div class="flex flex-col">
             <div class="h-[90vh] md:h-fit lg:h-[87vh] md:py-10 lg:py-0 w-full bg-black">
                 <div class='flex flex-col justify-center h-full lg:h-fit lg:flex-row lg:mt-10 lg:px-10'>

@@ -17,7 +17,7 @@
     <script src="/js/animation/anime.min.js"></script>
 </head>
 
-<body>
+<body class="bg-bgBlack">
     {{ $slot }}
     <script src="/js/animation/navbar.js"></script>
 </body>
