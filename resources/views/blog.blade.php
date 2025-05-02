@@ -15,10 +15,16 @@
                             {{ $b->created_at->format('d/m/Y') }}</span>
                     </div>
                     <p class="text-gray-300">{{ Str::limit($b->contents[0]->text, 100) }}</p>
-                    <a href="/blog/{{ $b->id }}" class="hover:text-blue-500 text-xs text-gray-300 w-fit">View More
-                        >></a>
+                    <a href="/blog/{{ $b->id }}" class="hover:text-blue-500 text-xs text-gray-300 w-fit">View More>></a>
                 </div>
             @endforeach
+        </div>
+        <div class="rounded border border-white flex w-fit overflow-hidden mx-auto text-white mt-10">
+            <a href="/blog" class="border-r border-white px-3 py-1 bg-red-500">First</a>
+            <a href="/blog" class="border-r border-white px-3 py-1">1</a>
+            <a href="/blog" class="border-r border-white px-3 py-1">2</a>
+            <a href="/blog" class="border-r border-white px-3 py-1">3</a>
+            <a href="/blog" class="px-3 py-1 bg-red-500">End</a>
         </div>
     </main>
     <script src="/js/animation/blog.js"></script>
