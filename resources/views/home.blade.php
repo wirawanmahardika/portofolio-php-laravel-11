@@ -2,10 +2,10 @@
     <x-slot:title>Home</x-slot:title>
 
     <x-navbar />
-    <div class="bg-bgBlack min-h-screen font-quicksand text-gray-200 overflow-hidden container mx-auto">
+    <div class="min-h-screen font-quicksand text-gray-200 overflow-hidden">
         <div class="flex flex-col">
             <div class="h-[90vh] md:h-fit lg:h-[87vh] md:py-10 lg:py-0 w-full bg-black">
-                <div class='flex flex-col justify-center h-full lg:h-fit lg:flex-row lg:mt-10 lg:px-10'>
+                <div class='flex flex-col justify-center h-full lg:h-fit lg:flex-row lg:mt-10 lg:px-10 container mx-auto'>
                     <div
                         class="w-2/3 mx-auto rounded-full bg-red-600 overflow-hidden shadow-sm shadow-slate-500 mt-3 sm:w-2/5 md:w-2/5 lg:order-2 lg:w-[60%]">
                         <img src="/img/dika.png" alt="dika" class="w-5/6 lg:w-3/4 mx-auto" />
@@ -32,7 +32,7 @@
 
 
             {{-- skills --}}
-            <div class="w-full flex gap-y-8 items-center flex-col p-5 min-h-screen py-20 mt-7">
+            <div class="w-full flex gap-y-8 items-center flex-col p-5 min-h-screen py-20 mt-7 container mx-auto">
                 <h3 class="font-bold text-4xl uppercase">Experience</h3>
                 <div class="w-full md:w-4/5 lg:w-2/3">
                     <h2 class="font-semibold text-lg">Backend Developer</h2>
@@ -65,7 +65,7 @@
 
 
             {{-- about --}}
-            <div id="about">
+            <div id="about" class="container mx-auto">
                 <div class="hidden md:grid grid-cols-3 p-5 gap-3 pb-0">
                     <img src="/img/about.png" alt="my picture" class="h-full" />
                     <div class="col-span-2 h-full flex items-center flex-col justify-center gap-y-4">
