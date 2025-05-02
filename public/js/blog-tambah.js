@@ -41,7 +41,7 @@ form.addEventListener("submit", async e => {
 
         const data = await res.text();
         console.log(data);
-
+        
 
         if (res.status === 200) {
             window.location.href = '/admin/blog'
