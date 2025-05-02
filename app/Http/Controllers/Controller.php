@@ -64,13 +64,17 @@ class Controller extends BaseController
     public function blog(Request $request)
     {
         $page = $request->query('page') ?? 1;
-        $page = intval($page) - 1; // Halaman dimulai dari 0 (untuk penyesuaian pagination)
-        
-        $perPage = 9; // Jumlah item per halaman
-        $skip = $page * $perPage; // Skip adalah jumlah item yang dilewati
-        $blogs = Blog::skip($skip)->take($perPage)->get(); // Ambil item yang diperlukan
+        $page = intval($page) - 1;
 
-        $pages = ceil(Blog::count()/$perPage);
+        $perPage = 6;
+        $skip = $page * $perPage;
+        $blogs = Blog::skip($skip)->take($perPage)->get();
+
+        $totalPage = ceil(Blog::count() / $perPage);
+        $pages = [];
+        for ($i=0; $i < $totalPage; $i++) { 
+            array_push($pages, $i+1);
+        }
         return view('blog', ['blogs' => $blogs, 'pages' => $pages]);
     }
 

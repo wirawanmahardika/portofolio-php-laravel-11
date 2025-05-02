@@ -21,9 +21,9 @@
         </div>
         <div class="rounded border border-white flex w-fit overflow-hidden mx-auto text-white mt-10">
             <a href="/blog" class="border-r border-white px-3 py-1 bg-red-500">First</a>
-            <a href="/blog" class="border-r border-white px-3 py-1">1</a>
-            <a href="/blog" class="border-r border-white px-3 py-1">2</a>
-            <a href="/blog" class="border-r border-white px-3 py-1">3</a>
+            @foreach ($pages as $p)
+                <a href="/blog?page={{$p}}" class="border-r border-white px-3 py-1">{{$p}}</a>            
+            @endforeach
             <a href="/blog" class="px-3 py-1 bg-red-500">End</a>
         </div>
     </main>
