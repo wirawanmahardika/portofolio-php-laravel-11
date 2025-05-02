@@ -61,10 +61,17 @@ class Controller extends BaseController
         return view('home', ['skills' => $skills, 'about' => $about]);
     }
 
-    public function blog()
+    public function blog(Request $request)
     {
-        $blogs = Blog::all();
-        return view('blog', ['blogs' => $blogs]);
+        $page = $request->query('page') ?? 1;
+        $page = intval($page) - 1; // Halaman dimulai dari 0 (untuk penyesuaian pagination)
+        
+        $perPage = 9; // Jumlah item per halaman
+        $skip = $page * $perPage; // Skip adalah jumlah item yang dilewati
+        $blogs = Blog::skip($skip)->take($perPage)->get(); // Ambil item yang diperlukan
+
+        $pages = ceil(Blog::count()/$perPage);
+        return view('blog', ['blogs' => $blogs, 'pages' => $pages]);
     }
 
     public function readBlog(Blog $blog)

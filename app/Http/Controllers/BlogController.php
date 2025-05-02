@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\BlogContent;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class BlogController extends Controller
 {
@@ -31,7 +32,6 @@ class BlogController extends Controller
         $isi = array_map(function ($i) {
             return ['text' => $i];
         }, $request->isi);
-
 
         $blog->contents()->createMany($isi);
         return response(content: 'Berhasil menambah blog', status: 200);
