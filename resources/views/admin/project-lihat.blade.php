@@ -42,7 +42,7 @@
 
                         <p>{{ $p->deskripsi }}</p>
                         @if (isset($p->github) || $p->web)
-                            <span class="font-bold -mb-4">View in : </span><br>
+                            <span class="font-bold">View in : </span><br>
                         @endif
                         <div class="flex gap-x-3 w-full">
                             @if (isset($p->github))

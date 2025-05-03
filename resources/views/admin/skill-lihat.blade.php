@@ -10,12 +10,10 @@
                 <div class="flex justify-center gap-x-3">
                     <a href="/admin/skills/edit/{{ $s->id }}"
                         class="px-8 py-1 rounded font-semibold text-white text-sm bg-sky-600">Edit</a>
-
                     <form method="POST" action="/admin/skills/hapus/{{ $s->id }}">
                         @csrf
                         <button class="px-8 py-1 rounded font-semibold text-white text-sm bg-red-600">Hapus</button>
                     </form>
-
                 </div>
 
             </div>
